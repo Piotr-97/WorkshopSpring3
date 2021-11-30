@@ -55,7 +55,7 @@ public class StudentService {
         }
 
     }
-    public Student getStudentByGenderAndByCourseType(GenderEnum gender,CourseTypeEnum courseType){
+    public List<Student> getStudentByGenderAndByCourseType(GenderEnum gender,CourseTypeEnum courseType){
        return studentRepository.getStudentByGenderAndByCourseType(gender,courseType);
     }
 

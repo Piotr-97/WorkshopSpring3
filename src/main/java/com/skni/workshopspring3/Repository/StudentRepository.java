@@ -18,7 +18,7 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
     void deleteById(long id);
 
     @Query(value = "SELECT * FROM Student student JOIN Course course ON student.course_id = course.id WHERE gender = ?1 and  CourseTypeEnum = ?2",nativeQuery = true)
-    Student getStudentByGenderAndByCourseType(GenderEnum gender,CourseTypeEnum courseTypeEnum);
+   List<Student> getStudentByGenderAndByCourseType(GenderEnum gender,CourseTypeEnum courseTypeEnum);
 
 
 }
