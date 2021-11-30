@@ -1,16 +1,17 @@
 package com.skni.workshopspring3.Repository;
 
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Student")
+@Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
 
@@ -18,21 +19,25 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "firstname")
+    @Column(name = "Firstname")
     private String firstname;
 
-    @Column(name = "lastname")
-    private String lastname;
+    @Column(name = "LastName")
+    private String lastName;
 
-    @Column(name = "birthday")
+    @Column(name = "Birthday")
     private LocalDate birthday;
 
-    @Enumerated
-    @Column(name = "gender")
-    private GenderEnum genderEnum;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Gender")
+    private GenderEnum gender;
 
-   /* @Column(name = "Course")
-    private Course course;*/
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Course_id")
+    private Course courseType;
+
 
 
 }
