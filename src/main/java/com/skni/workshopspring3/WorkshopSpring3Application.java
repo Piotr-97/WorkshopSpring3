@@ -1,6 +1,13 @@
 package com.skni.workshopspring3;
 
 import java.time.LocalDate;
+
+import com.skni.workshopspring3.Repository.Entity.Course;
+import com.skni.workshopspring3.Repository.Entity.CourseTypeEnum;
+import com.skni.workshopspring3.Repository.Entity.GenderEnum;
+import com.skni.workshopspring3.Repository.Entity.Student;
+import com.skni.workshopspring3.Services.CourseService;
+import com.skni.workshopspring3.Services.StudentService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,7 +50,7 @@ public class WorkshopSpring3Application {
 			System.out.println(studentService.getStudentByGenderAndByCourseType(GenderEnum.FEMALE, CourseTypeEnum.LICENCJAT));
 
 			System.out.println(studentService.getAllStudents());
-			System.out.println(studentService.deleteStudentById(student.getId()));
+			System.out.println(studentService.deleteStudentById(studentFemale.getId()));
 			System.out.println(studentService.getAllStudents());
 
 		};
